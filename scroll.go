@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
 	"strings"
 	"time"
 )
@@ -45,8 +46,21 @@ func (c *circularStringReader) readString(start, size int) string {
 	return result
 }
 
-func main() {
+func init() {
+	flag.Usage = func() {
+		fmt.Fprintf(os.Stderr, "Usage:\n\n  %s [OPTIONS] input string\n\nOptions:\n", os.Args[0])
+		flag.PrintDefaults()
+	}
+
 	flag.Parse()
+}
+
+func main() {
+
+	if len(flag.Args()) == 0 {
+		flag.Usage()
+		os.Exit(0)
+	}
 
 	csr := circularStringReader{input: strings.Join(flag.Args(), " "), position: 0}
 
