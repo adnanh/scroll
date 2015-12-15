@@ -53,15 +53,14 @@ func init() {
 	}
 
 	flag.Parse()
-}
-
-func main() {
 
 	if len(flag.Args()) == 0 {
 		flag.Usage()
 		os.Exit(1)
 	}
+}
 
+func main() {
 	csr := circularStringReader{input: strings.Join(flag.Args(), " "), position: 0}
 
 	for i := *start; true; i++ {
