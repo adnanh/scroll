@@ -1,6 +1,11 @@
 # scroll
 continuously scroll a given string...
 
+# why?
+I wanted to build a news ticker for my i3 status bar
+
+# usage
+
 ```
 Usage:
 
