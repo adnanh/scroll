@@ -1,5 +1,5 @@
 # scroll
-cli tool to scroll a given string
+continuously scroll a given string...
 
 ```
 Usage:
