@@ -59,7 +59,7 @@ func main() {
 
 	if len(flag.Args()) == 0 {
 		flag.Usage()
-		os.Exit(0)
+		os.Exit(1)
 	}
 
 	csr := circularStringReader{input: strings.Join(flag.Args(), " "), position: 0}
