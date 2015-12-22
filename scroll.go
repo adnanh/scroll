@@ -64,12 +64,11 @@ func main() {
 	csr := circularStringReader{input: strings.Join(flag.Args(), " "), position: 0}
 
 	for i := *start; true; i++ {
-		fmt.Println(csr.readString(i*(*step), *size))
-		
 		if *count > 0 && i >= *count { 
 			break
 		}
 		
+		fmt.Println(csr.readString(i*(*step), *size))
 		time.Sleep(time.Duration(*delay) * time.Millisecond)
 	}
 
