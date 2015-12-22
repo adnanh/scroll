@@ -11,6 +11,7 @@ import (
 var start = flag.Int("start", 0, "character position to start from")
 var step = flag.Int("step", 1, "number of characters to step by")
 var size = flag.Int("size", 80, "number of characters to display")
+var count = flag.Int("count", 0, "how many lines to output, use 0 or negative number for infinite")
 var delay = flag.Int("delay", 600, "delay in miliseconds between line outputs")
 
 type circularStringReader struct {
@@ -64,6 +65,12 @@ func main() {
 
 	for i := *start; true; i++ {
 		fmt.Println(csr.readString(i*(*step), *size))
+		
+		if *count > 0 && i >= *count { 
+			break
+		}
+		
 		time.Sleep(time.Duration(*delay) * time.Millisecond)
 	}
+
 }
